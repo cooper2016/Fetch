@@ -1,6 +1,68 @@
+body {
+  font-family: 'Times New Roman', Times, serif;
+  /* font-family: 'Open Sans', sans-serif; */
+  font-size: 20px;
+  line-height: 1;
+  text-align: left;
+  background-color: #fae1b2;
+}
+
+header > *{ 
+  border: solid #000000 3px;
+  background-color: #fbc45e;
+  margin: 20px 5%;
+  font-size: 125%;
+  padding: 10px;
+} 
+
+.searchBtn {
+  background-color: #ffb404;
+  padding: 5px 20px; 
+  font-size: 125%;
+}
+
+.dogBtn {
+  background-color: #ec8917;
+  padding: 5px 20px; 
+  font-size: 125%;
+}
+
+button {
+  background-color: #ffb404;
+  padding: 5px 20px; 
+  font-size: 125%;
+}
+
 #map {
     height: 400px;
     /* The height is 400 pixels */
     width: 100%;
     /* The width is the width of the web page */
   }
+
+  /* mobile phone */
+@media screen and (min-width: 768px){
+  header {
+      justify-content: space-between;
+  }
+  
+  #mainSection {
+      margin: 75px 20% 20px;
+  }
+  #mainBody {
+      text-align: left;
+  }
+}
+
+/* tablet */
+@media screen and (min-width: 992px){
+  header {
+      justify-content: space-between;
+  }
+  #mainSection {
+      margin: 75px 20% 20px;
+  }
+  #mainBody {
+      text-align: left;
+  }
+}
