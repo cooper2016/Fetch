@@ -1,4 +1,4 @@
-var dogfactsbtn = document.querySelector('.dog-facts')
+var dogfactsbtn = document.querySelector('.dog-facts-btn')
 var fact = document.querySelector('.fact')
 
 dogfactsbtn.addEventListener('click', function () {
