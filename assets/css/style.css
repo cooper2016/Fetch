@@ -1,5 +1,16 @@
-#map {
-    margin: auto;
+* {
+  box-sizing: border-box;
+}
+
+body {
+  background-color: aliceblue;
+}
+
+.main-container {
+  margin: 0;
+}
+
+.map {
     height: 400px;
     /* The height is 400 pixels */
     width: 50%;

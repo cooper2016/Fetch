@@ -4,33 +4,48 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://kit.fontawesome.com/fb81218133.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="./assets/css/style.css">
     <title>Fetch!</title>
 </head>
+<!-- Header -->
 <body>
-    <div>
-        <header><h1>Fetch!</h1></header>
+    <div class="container mx-auto">
+        <header>
+            <h1>Fetch!</h1>
         <br>
         <h4>The place to find local parks and trails to have that nice walk with mans best friend</h4>
+        </header>
+        <!-- Main container -->
     </div>
-    <div class="main-container">
-        <input type="text" placeholder="Find local parks and trails">
-        <button>Search</button>
-        <div class="maps-container">
-            <!-- insert Google Maps API here -->
-            <h3>My Google Maps Demo</h3>
-             <!--The div element for the map -->
-            <div id="map"></div>
+    <main>
+        <div class="main-container">
+            <input class="rounded-sm border-neutral-900 border bg-white-500 px-1.5" type="text" placeholder="Find local parks and trails">
+            <button class="rounded-sm border-neutral-900 border hover:border-indigo-300 bg-white-500 px-1.5"><i class="fa-solid fa-magnifying-glass"></i></button>
+            <!-- Google Maps API -->
+            <div class="maps-container">
+                <h3>My Google Maps Demo</h3>
+                <div class="map border-neutral-900 grid-cols-1"></div>
+            </div>
+            <!-- Dog Facts container -->
+            <div class="main-fact-Container">
+                <aside>
+                    <!-- Dog Facts API -->
+                    <button class="dog-facts-btn rounded-sm border-neutral-900 border hover:border-indigo-300 bg-white-500 px-1.5">Dog Fact</button>
+                    <button class="clear-btn rounded-sm border-neutral-900 border hover:border-indigo-300 bg-white-500 px-1.5">Clear</button>
+                    <Div class="fact-container">
+                    <p class = "fact"></p>
+                    </Div>
+                </aside>
+            </div>
         </div>
-        <div class="facts-Container">
-            <aside>
-                <button class="dog-facts">Dog Fact</button>
-                <p class = "fact"></p>
-            </aside>
+    </main>
+    <footer>
+        <div>
+        h3>Thanks for visiting! ❤ </h3>
         </div>
-    </div>
-    
-    
+    </footer>
     <script src="./assets/script/script.js"></script>
     <script src="./assets/script/googleMaps.js"></script>
     <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBDn0xjfckqD40txkDANthif7G5BFhGir4&callback=initMap"></script>
