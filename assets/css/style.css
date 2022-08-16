@@ -6,13 +6,12 @@ body {
   background-color: aliceblue;
 }
 
-.main-container {
-  margin: 0;
-}
-
 .map {
-    height: 400px;
-    /* The height is 400 pixels */
-    width: 100%;
-    /* The width is the width of the web page */
+    height: 500px;
+    width: 900px;
   }
+
+.banner {
+  font-size: 40px;
+  font-family: 'Times New Roman', Times, serif;
+}
