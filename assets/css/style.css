@@ -4,6 +4,8 @@
 
 body {
   background-color: aliceblue;
+  font-family: 'Times New Roman', Times, serif;
+  font-size: 22px;
 }
 
 .map {
@@ -13,5 +15,31 @@ body {
 
 .banner {
   font-size: 40px;
-  font-family: 'Times New Roman', Times, serif;
+}
+
+  /* mobile phone */
+@media screen and (min-width: 768px){
+  header {
+      justify-content: space-between;
+  }
+  
+  #mainSection {
+      margin: 75px 20% 20px;
+  }
+  #mainBody {
+      text-align: left;
+  }
+}
+
+/* tablet */
+@media screen and (min-width: 992px) {
+  header {
+      justify-content: space-between;
+  }
+  #mainSection {
+      margin: 75px 20% 20px;
+  }
+  #mainBody {
+      text-align: left;
+  }
 }
