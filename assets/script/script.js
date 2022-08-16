@@ -1,5 +1,6 @@
 var dogfactsbtn = document.querySelector('.dog-facts-btn')
 var fact = document.querySelector('.fact')
+var clearbtn = document.querySelector('.clear-btn')
 
 dogfactsbtn.addEventListener('click', function () {
     fetch('https://www.dogfactsapi.ducnguyen.dev/api/v1/facts/all')
@@ -15,3 +16,7 @@ dogfactsbtn.addEventListener('click', function () {
             }
         })
 });
+
+clearbtn.addEventListener('click', function(){
+    fact.innerHTML = ""
+})
