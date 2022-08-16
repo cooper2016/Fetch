@@ -13,7 +13,7 @@ var lon = -93.258;
 function initMap() {
   map = new google.maps.Map(document.querySelector(".map"), {
     center: { lat: lat, lng: lon },
-    zoom: 10,
+    zoom: 15,
   });
   infoWindow = new google.maps.InfoWindow();
 
@@ -59,7 +59,7 @@ function handleLocationError(browserHasGeolocation, infoWindow, pos) {
 }
 
 searchbtn.addEventListener('click', function () {
-  fetch("https://api.openweathermap.org/data/2.5/weather?q=" + inputVal.value + "&appid=920258eaef7a61195023afcad9f13a2c&units=imperial")
+  fetch('https://api.openweathermap.org/data/2.5/weather?q=' + inputVal.value + ',USA&APPID=deea8678f358f6e59a970dd133b9edc3')
     .then(function (response) {
       if (response.ok) {
         console.log(response);

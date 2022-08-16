@@ -15,4 +15,18 @@ body {
     /* The height is 400 pixels */
     width: 50%;
     /* The width is the width of the web page */
-  }
+}
+
+.custom-map-control-button {
+  padding: 3px;
+  background-color: white;
+  border: 1px solid black;
+  border-radius: 5px;
+  font-size: 17px;
+  margin-top: 2px;
+
+}
+
+.custom-map-control-button:hover{
+  background-color: rgb(242, 242, 242);
+}
