@@ -75,4 +75,5 @@ searchbtn.addEventListener('click', function () {
   }
 )
 
+
 window.initMap = initMap;
