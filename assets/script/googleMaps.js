@@ -1,15 +1,19 @@
-/* <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA_c0V38Ue7CmffPblXlzaGjxabXX6zkl0&callback=initMap"></script> */
+/* <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBDn0xjfckqD40txkDANthif7G5BFhGir4&callback=initMap"></script> */
 
 // Note: This example requires that you consent to location sharing when
 // prompted by your browser. If you see the error "The Geolocation service
 // failed.", it means you probably did not give permission for the browser to
 // locate you.
 let map, infoWindow;
+var searchbtn = document.querySelector(".search-btn")
+var inputVal = document.querySelector(".inputVal")
+var lat = 44.986;
+var lon = -93.258;
 
 function initMap() {
   map = new google.maps.Map(document.querySelector(".map"), {
-    center: { lat: -34.397, lng: 150.644 },
-    zoom: 6,
+    center: { lat: lat, lng: lon },
+    zoom: 10,
   });
   infoWindow = new google.maps.InfoWindow();
 
@@ -53,5 +57,22 @@ function handleLocationError(browserHasGeolocation, infoWindow, pos) {
   );
   infoWindow.open(map);
 }
+
+searchbtn.addEventListener('click', function () {
+  fetch("https://api.openweathermap.org/data/2.5/weather?q=" + inputVal.value + "&appid=920258eaef7a61195023afcad9f13a2c&units=imperial")
+    .then(function (response) {
+      if (response.ok) {
+        console.log(response);
+        response.json().then(function (data) {
+
+          lat = data.coord.lat
+          lon = data.coord.lon
+          initMap();
+
+        })
+      }
+    })
+  }
+)
 
 window.initMap = initMap;
