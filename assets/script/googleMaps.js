@@ -81,6 +81,7 @@ function initMap() {
   service.nearbySearch(request, callback);
 
   createMarker({lat:map.center.lat(),lng:map.center.lng()});
+  
  
 }
 
@@ -137,9 +138,10 @@ searchbtn.addEventListener('click', function () {
       if (response.ok) {
         console.log(response);
         response.json().then(function (data) {
+          
+          request.location = {lat:data.coord.lat,lng:data.coord.lon};
+          console.log(request.location);
 
-          lat = data.coord.lat
-          lon = data.coord.lon
           initMap();
 
         })
