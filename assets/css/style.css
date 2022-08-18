@@ -17,11 +17,32 @@ body {
   font-size: 40px;
 }
 
-.map {
-    height: 400px;
-    /* The height is 400 pixels */
-    width: 50%;
-    /* The width is the width of the web page */
+.header-text {
+  font-size: 25px;
+}
+
+.accordion {
+  background-color: #daeffe;
+  color: #444;
+  cursor: pointer;
+  padding: 18px;
+  width: 100%;
+  border: none;
+  text-align: left;
+  outline: none;
+  font-size: 15px;
+  transition: 0.4s;
+}
+
+.active, .accordion:hover {
+  background-color: #daeffe66; 
+}
+
+.panel {
+  padding: 0 18px;
+  display: none;
+  background-color: white;
+  overflow: hidden;
 }
 
 .custom-map-control-button {
@@ -36,9 +57,9 @@ body {
 
 .custom-map-control-button:hover{
   background-color: rgb(242, 242, 242);
-  /* mobile phone */
 }
 
+/* mobile phone */
 @media screen and (min-width: 768px){
   header {
       justify-content: space-between;
@@ -50,10 +71,10 @@ body {
   #mainBody {
       text-align: left;
   }
-}
+} 
 
 /* tablet */
-@media screen and (min-width: 992px) {
+ @media screen and (min-width: 992px) {
   header {
       justify-content: space-between;
   }

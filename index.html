@@ -5,49 +5,56 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://unpkg.com/flowbite@1.5.2/dist/flowbite.min.css" />
     <script src="https://kit.fontawesome.com/fb81218133.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="./assets/css/style.css">
     <title>Fetch!</title>
 </head>
 <!-- Header -->
 <body>
-    <div class="container bg-sky-100">
+    <div class="header-container border border-neutral-900 mx-auto bg-sky-100">
         <header>
-            <h1 class="banner font-center font-bold">Fetch!</h1>
+            <h1 class="banner flex justify-center font-center font-bold">Fetch!</h1>
         <br>
-        <h4>The place to find local parks and trails to have that nice walk with mans best friend</h4>
+        <h4 class="header-text flex justify-center">The place to find local parks and trails to have that nice walk with mans best friend</h4>
         </header>
-        <!-- Main container -->
     </div>
+    <!-- Main container -->
     <main>
-        <div class="main-container">
-            <input class="rounded-sm border-neutral-900 border bg-white-500 px-1.5 inputVal" type="text" placeholder="Find local parks and trails">
-            <button class="rounded-sm border-neutral-900 border hover:border-indigo-300 bg-white-500 px-1.5 search-btn" ><i class="fa-solid fa-magnifying-glass"></i></button>
+        <div class="main-container md:flex md:items-center md:justify-between">
             <!-- Google Maps API -->
             <div class="maps-container">
+                <input class="rounded-sm border-blue-700 border font-medium rounded-lg text-sm px-5 py-2.5 text-center mb-2 inputVal" type="text" placeholder="Find local parks and trails">
+                <button class="rounded-sm border-blue-700 border text-blue-700 hover:text-white border border-blue-700 hover:bg-blue-800 focus:outline-none focus:ring-blue-300 rounded-lg text-sm px-5 py-2.5 text-center mb-2 dark:border-blue-500 dark:text-blue-500 dark:hover:text-white dark:hover:bg-blue-600 rounded-lg hover:bg-blue-800 search-btn" ><i class="fa-solid fa-magnifying-glass"></i></button>
                 <h3>My Google Maps Demo</h3>
                 <div class="map border-neutral-900 grid-cols-1"></div>
             </div>
             <!-- Dog Facts container -->
-            <div class="main-fact-Container">
+            <div class="main-fact-Container block w-full border border-neutral-900">
                 <aside>
                     <!-- Dog Facts API -->
-                    <button class="dog-facts-btn rounded-sm border-neutral-900 border hover:border-indigo-300 bg-white-500 px-1.5">Dog Fact</button>
-                    <button class="clear-btn rounded-sm border-neutral-900 border hover:border-indigo-300 bg-white-500 px-1.5">Clear</button>
+                    <button class="dog-facts-btn text-blue-700 hover:text-white border border-blue-700 hover:bg-blue-800 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-1 mb-2 dark:border-blue-500 dark:text-blue-500 dark:hover:text-white dark:hover:bg-blue-600">Dog Fact</button>
+                    <button class="save-btn text-blue-700 hover:text-white border border-blue-700 hover:bg-blue-800 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-1 mb-2 dark:border-blue-500 dark:text-blue-500 dark:hover:text-white dark:hover:bg-blue-600">Save</button>
+                    <button class="clear-btn text-blue-700 hover:text-white border border-blue-700 hover:bg-blue-800 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-1 mb-2 dark:border-blue-500 dark:text-blue-500 dark:hover:text-white dark:hover:bg-blue-600">Clear</button>
                     <div class="fact-container">
                         <p class = "fact"></p>
                         <img src="./assets/images/cutedogs.jpeg" alt="A photo of 2 cute dogs"/>
                     </div>
                 </aside>
+                <button class="accordion">Favorite Dog Facts</button>
+                <div class="panel">
+                    <p id="fav-dog-facts"><!-- favorite list here --></p>
+                </div>
             </div>
         </div>
     </main>
-    <footer>
+    <footer class="p-4 bg-sky-100 rounded-lg absolute inset-x-0 bottom-0 justify-center md:flex md:items-center md:p-6">
         <div>
-        <h3 class="footer-class">Thanks for visiting! ❤ </h3>
+        <h3 class="footer-class"><i class="fa-solid fa-paw"></i> Thank you for visiting <i class="fa-solid fa-paw"></i> </h3>
         </div>
     </footer>
     <script src="./assets/script/script.js"></script>
+    <script src="https://unpkg.com/flowbite@1.5.2/dist/flowbite.js"></script>
     <script src="./assets/script/googleMaps.js"></script>
     <script async src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBDn0xjfckqD40txkDANthif7G5BFhGir4&libraries=places&callback=initMap&type=park"></script>
 
