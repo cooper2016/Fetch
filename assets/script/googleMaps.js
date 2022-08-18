@@ -5,6 +5,7 @@
 // failed.", it means you probably did not give permission for the browser to
 // locate you.
 let map, infoWindow;
+let service;
 var searchbtn = document.querySelector(".search-btn")
 var inputVal = document.querySelector(".inputVal")
 var lat = 44.986;
@@ -15,8 +16,10 @@ function initMap() {
     center: { lat: lat, lng: lon },
     zoom: 15,
   });
-  infoWindow = new google.maps.InfoWindow();
 
+  createMarker({lat:map.center.lat(),lng:map.center.lng()});
+  infoWindow = new google.maps.InfoWindow();
+ 
   const locationButton = document.createElement("button");
 
   locationButton.textContent = "Pan to Current Location";
@@ -46,6 +49,43 @@ function initMap() {
       handleLocationError(false, infoWindow, map.getCenter());
     }
   });
+
+  //requested location
+
+  var request = {
+    location: { lat: lat, lng: lon },
+    radius: '8046',
+    type: ['park']
+  };
+
+  
+  service = new google.maps.places.PlacesService(map);
+  service.nearbySearch(request, callback);
+
+  function callback(results, status) {
+
+    // console.log(results);
+    if (status == google.maps.places.PlacesServiceStatus.OK) {
+      for (var i = 0; i < results.length; i++) {
+        // console.log(results[i]);
+        createMarker({lat:results[i].geometry.location.lat(),lng:results[i].geometry.location.lng()});
+      }
+    }
+  }
+
+ 
+}
+
+function createMarker(resultObj){
+
+  console.log(resultObj)
+  var locLat = resultObj.lat;
+  var locLon = resultObj.lng;
+    new google.maps.Marker({
+    position: {lat: locLat, lng: locLon},
+    map,
+    title: "Hello World!",
+    });
 }
 
 function handleLocationError(browserHasGeolocation, infoWindow, pos) {
