@@ -8,16 +8,31 @@ let map, infoWindow;
 let service;
 var searchbtn = document.querySelector(".search-btn")
 var inputVal = document.querySelector(".inputVal")
+
+//coordinates to Minneapolis, MN to initialize
 var lat = 44.986;
 var lon = -93.258;
 
+var pos = {lat: lat, lng: lon };
+
+//requested location
+
+var request = {
+  location: pos,
+  radius: '8046',
+  type: ['park']
+};
+
+
+
 function initMap() {
+
   map = new google.maps.Map(document.querySelector(".map"), {
-    center: { lat: lat, lng: lon },
+    center: pos,
     zoom: 15,
   });
 
-  createMarker({lat:map.center.lat(),lng:map.center.lng()});
+  
   infoWindow = new google.maps.InfoWindow();
  
   const locationButton = document.createElement("button");
@@ -25,20 +40,29 @@ function initMap() {
   locationButton.textContent = "Pan to Current Location";
   locationButton.classList.add("custom-map-control-button");
   map.controls[google.maps.ControlPosition.TOP_CENTER].push(locationButton);
+
+  
   locationButton.addEventListener("click", () => {
     // Try HTML5 geolocation.
     if (navigator.geolocation) {
       navigator.geolocation.getCurrentPosition(
         (position) => {
-          const pos = {
+          pos = {
             lat: position.coords.latitude,
             lng: position.coords.longitude,
           };
 
-          infoWindow.setPosition(pos);
-          infoWindow.setContent("Location found.");
           infoWindow.open(map);
           map.setCenter(pos);
+          createMarker({lat:map.center.lat(),lng:map.center.lng()});
+
+          request.location = pos;
+
+
+          servicePan = new google.maps.places.PlacesService(map);
+          servicePan.nearbySearch(request, callback);
+
+          createMarker({lat:map.center.lat(),lng:map.center.lng()});
         },
         () => {
           handleLocationError(true, infoWindow, map.getCenter());
@@ -49,44 +73,53 @@ function initMap() {
       handleLocationError(false, infoWindow, map.getCenter());
     }
   });
-
-  //requested location
-
-  var request = {
-    location: { lat: lat, lng: lon },
-    radius: '8046',
-    type: ['park']
-  };
+  
+  
 
   
   service = new google.maps.places.PlacesService(map);
   service.nearbySearch(request, callback);
 
-  function callback(results, status) {
+  createMarker({lat:map.center.lat(),lng:map.center.lng()});
+ 
+}
 
-    // console.log(results);
-    if (status == google.maps.places.PlacesServiceStatus.OK) {
-      for (var i = 0; i < results.length; i++) {
-        // console.log(results[i]);
-        createMarker({lat:results[i].geometry.location.lat(),lng:results[i].geometry.location.lng()});
-      }
+
+
+//render markers on the page
+function callback(results, status) {
+
+
+  console.log(results);
+  if (status == google.maps.places.PlacesServiceStatus.OK) {
+    for (var i = 0; i < results.length; i++) {
+      // console.log(results[i]);
+      createMarker({lat:results[i].geometry.location.lat(),lng:results[i].geometry.location.lng()});
     }
   }
-
- 
 }
 
 function createMarker(resultObj){
 
-  console.log(resultObj)
+  // console.log(resultObj)
+  
   var locLat = resultObj.lat;
   var locLon = resultObj.lng;
-    new google.maps.Marker({
-    position: {lat: locLat, lng: locLon},
-    map,
-    title: "Hello World!",
-    });
+    
+  new google.maps.Marker({
+  position: {lat: locLat, lng: locLon},
+  map,
+  title: "Hello World!",
+  });
+
+    
 }
+
+
+
+
+
+
 
 function handleLocationError(browserHasGeolocation, infoWindow, pos) {
   infoWindow.setPosition(pos);
