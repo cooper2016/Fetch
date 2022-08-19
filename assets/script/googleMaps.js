@@ -10,10 +10,10 @@ var searchbtn = document.querySelector(".search-btn")
 var inputVal = document.querySelector(".inputVal")
 
 //coordinates to Minneapolis, MN to initialize
-var lat = 44.986;
-var lon = -93.258;
+var lat = 34.0522342;
+var lon = -118.2436849;
 
-var pos = {lat: lat, lng: lon };
+var pos = {lat: lat, lng: lon};
 
 //requested location
 
@@ -29,7 +29,7 @@ function initMap() {
 
   map = new google.maps.Map(document.querySelector(".map"), {
     center: pos,
-    zoom: 15,
+    zoom: 13,
   });
 
   
@@ -54,15 +54,14 @@ function initMap() {
 
           infoWindow.open(map);
           map.setCenter(pos);
-          createMarker({lat:map.center.lat(),lng:map.center.lng()});
+          //pan to current location center marker
+          createMarker({lat:map.center.lat(),lng:map.center.lng()}, true);
 
           request.location = pos;
 
 
           servicePan = new google.maps.places.PlacesService(map);
           servicePan.nearbySearch(request, callback);
-
-          createMarker({lat:map.center.lat(),lng:map.center.lng()});
         },
         () => {
           handleLocationError(true, infoWindow, map.getCenter());
@@ -76,13 +75,39 @@ function initMap() {
   
   
 
-  
   service = new google.maps.places.PlacesService(map);
   service.nearbySearch(request, callback);
+  
 
-  createMarker({lat:map.center.lat(),lng:map.center.lng()});
+  createMarker({lat:map.center.lat(),lng:map.center.lng()},true);
   
  
+
+
+
+  searchbtn.addEventListener('click', function () {
+    fetch('https://api.openweathermap.org/data/2.5/weather?q=' + inputVal.value + ',USA&APPID=deea8678f358f6e59a970dd133b9edc3')
+      .then(function (response) {
+        if (response.ok) {
+          response.json().then(function (data) {
+            
+            request.location = {lat:data.coord.lat,lng:data.coord.lon};
+            map.setCenter(request.location);
+            //request location center marker
+            createMarker(request.location,true);
+            
+            serviceLoc = new google.maps.places.PlacesService(map);
+            serviceLoc.nearbySearch(request, callback);
+            
+  
+          })
+        }
+      })
+    }
+  )
+
+
+
 }
 
 
@@ -90,30 +115,31 @@ function initMap() {
 //render markers on the page
 function callback(results, status) {
 
-
-  console.log(results);
   if (status == google.maps.places.PlacesServiceStatus.OK) {
     for (var i = 0; i < results.length; i++) {
       // console.log(results[i]);
-      createMarker({lat:results[i].geometry.location.lat(),lng:results[i].geometry.location.lng()});
+      createMarker({lat:results[i].geometry.location.lat(),lng:results[i].geometry.location.lng()},false);
     }
   }
 }
 
-function createMarker(resultObj){
+function createMarker(resultObj, isCenter){
 
-  // console.log(resultObj)
   
   var locLat = resultObj.lat;
   var locLon = resultObj.lng;
-    
+  if (isCenter){
   new google.maps.Marker({
   position: {lat: locLat, lng: locLon},
   map,
-  title: "Hello World!",
   });
-
-    
+  }else {
+    new google.maps.Marker({
+      position: {lat: locLat, lng: locLon},
+      map,
+      icon: {url: 'http://maps.google.com/mapfiles/ms/icons/blue-dot.png' },
+    });
+  }
 }
 
 
@@ -131,24 +157,5 @@ function handleLocationError(browserHasGeolocation, infoWindow, pos) {
   );
   infoWindow.open(map);
 }
-
-searchbtn.addEventListener('click', function () {
-  fetch('https://api.openweathermap.org/data/2.5/weather?q=' + inputVal.value + ',USA&APPID=deea8678f358f6e59a970dd133b9edc3')
-    .then(function (response) {
-      if (response.ok) {
-        console.log(response);
-        response.json().then(function (data) {
-          
-          request.location = {lat:data.coord.lat,lng:data.coord.lon};
-          console.log(request.location);
-
-          initMap();
-
-        })
-      }
-    })
-  }
-)
-
 
 window.initMap = initMap;

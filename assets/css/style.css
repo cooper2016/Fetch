@@ -11,7 +11,11 @@ body {
 .main-container {
   display: flex;
   width: 100%;
+  margin-bottom: auto;
+  margin-top: auto;
+  max-height: 75vh;
 }
+
 .maps-container {
   width: 75%;
   border: solid 1px black;
@@ -23,10 +27,13 @@ body {
   justify-content: center;
 }
 
-
-
 .main-fact-container {
   flex: auto;
+  overflow: scroll;
+}
+.maps-hero {
+  display: flex;
+  justify-content: center;
 }
 
 .map {
@@ -73,7 +80,6 @@ body {
   padding: 0 18px;
   display: none;
   background-color: white;
-  overflow: hidden;
 }
 
 .custom-map-control-button {
