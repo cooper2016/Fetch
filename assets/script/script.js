@@ -18,6 +18,7 @@ function init() {
 
     renderFacts();
 }
+
 dogfactsbtn.addEventListener('click', function () {
     fetch('https://www.dogfactsapi.ducnguyen.dev/api/v1/facts/all')
         .then(function (response) {

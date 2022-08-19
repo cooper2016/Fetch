@@ -8,9 +8,41 @@ body {
   font-size: 22px;
 }
 
+.main-container {
+  display: flex;
+  width: 100%;
+  margin-bottom: auto;
+  margin-top: auto;
+  max-height: 75vh;
+}
+
+.maps-container {
+  width: 75%;
+  border: solid 1px black;
+}
+
+.input-group {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.main-fact-container {
+  flex: auto;
+  overflow: scroll;
+}
+.maps-hero {
+  display: flex;
+  justify-content: center;
+}
+
 .map {
-    height: 500px;
-    width: 900px;
+    height: 400px;
+    width: 90%;
+    margin-right: auto;
+    margin-left: auto;
+    margin-bottom: 20px;
+    margin-top: 15px;
   }
 
 .banner {
@@ -19,6 +51,12 @@ body {
 
 .header-text {
   font-size: 25px;
+}
+
+.facts-hero {
+  background-color:#daeffe;
+  padding: 10px;
+  width: 100%;
 }
 
 .accordion {
@@ -42,7 +80,6 @@ body {
   padding: 0 18px;
   display: none;
   background-color: white;
-  overflow: hidden;
 }
 
 .custom-map-control-button {

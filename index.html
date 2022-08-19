@@ -16,36 +16,37 @@
         <header>
             <h1 class="banner flex justify-center font-center font-bold">Fetch!</h1>
         <br>
-        <h4 class="header-text flex justify-center">The place to find local parks and trails to have that nice walk with mans best friend <i class="fa-solid fa-dog"></i>
+        <h4 class="header-text flex justify-center">The place to find local parks to have that nice walk with mans best friend<i class="fa-solid fa-dog"></i>
         </header>
     </div>
     <!-- Main container -->
     <main>
-        <div class="main-container md:flex md:items-center md:justify-between">
-            <input class="rounded-sm border-neutral-900 border bg-white-500 px-1.5 inputVal" type="text" placeholder="Example: Los Angeles, CA">
-            <button class="rounded-sm border-neutral-900 border hover:border-indigo-300 bg-white-500 px-1.5 search-btn" ><i class="fa-solid fa-magnifying-glass"></i></button>
+        <div class="main-container">
             <!-- Google Maps API -->
-            <div class="maps-container">
-                <input class="rounded-sm border-blue-700 border font-medium rounded-lg text-sm px-5 py-2.5 text-center mb-2 inputVal" type="text" placeholder="Find local parks and trails">
-                <button class="rounded-sm border-blue-700 border text-blue-700 hover:text-white border border-blue-700 hover:bg-blue-800 focus:outline-none focus:ring-blue-300 rounded-lg text-sm px-5 py-2.5 text-center mb-2 dark:border-blue-500 dark:text-blue-500 dark:hover:text-white dark:hover:bg-blue-600 rounded-lg hover:bg-blue-800 search-btn" ><i class="fa-solid fa-magnifying-glass"></i></button>
-                <h3>My Google Maps Demo</h3>
+            <div class="maps-container block w-full">
+                <h3 class="maps-hero">My Google Maps Demo</h3>
+                <div class="input-group">
+                <input type="search" class="search-bar rounded-sm border-blue-700 border font-medium rounded-lg text-sm px-5 py-2.5 text-center mb-2 inputVal" type="text" placeholder="Example: Los Angeles, CA">
+                <button class="search-btn rounded-sm border-blue-700 border text-blue-700 hover:text-white border border-blue-700 hover:bg-blue-800 focus:outline-none focus:ring-blue-300 rounded-lg text-sm px-5 py-2.5 text-center mb-2 rounded-lg hover:bg-blue-800" ><i class="fa-solid fa-magnifying-glass"></i></button>
+                </div>
                 <div class="map border-neutral-900 grid-cols-1"></div>
             </div>
             <!-- Dog Facts container -->
-            <div class="main-fact-Container block w-full border border-neutral-900">
-                <aside>
+            <div class="main-fact-container block w-full border border-neutral-900">
+                <section>
                     <!-- Dog Facts API -->
-                    <button class="dog-facts-btn text-blue-700 hover:text-white border border-blue-700 hover:bg-blue-800 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-1 mb-2 dark:border-blue-500 dark:text-blue-500 dark:hover:text-white dark:hover:bg-blue-600">Dog Fact</button>
-                    <button class="save-btn text-blue-700 hover:text-white border border-blue-700 hover:bg-blue-800 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-1 mb-2 dark:border-blue-500 dark:text-blue-500 dark:hover:text-white dark:hover:bg-blue-600">Save</button>
-                    <button class="clear-btn text-blue-700 hover:text-white border border-blue-700 hover:bg-blue-800 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-1 mb-2 dark:border-blue-500 dark:text-blue-500 dark:hover:text-white dark:hover:bg-blue-600">Clear Favorites</button>
+                    <h3 class="facts-hero">Dog Facts</h3>
+                    <img src="./assets/images/cutedogs.jpeg" alt="A photo of 2 cute dogs"/>
+                    <button class="dog-facts-btn text-blue-700 hover:text-white border border-blue-700 hover:bg-blue-800 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-1 mb-2">Dog Fact</button>
+                    <button class="save-btn text-blue-700 hover:text-white border border-blue-700 hover:bg-blue-800 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-1 mb-2">Favorite</button>
+                    <button class="clear-btn text-blue-700 hover:text-white border border-blue-700 hover:bg-blue-800 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-1 mb-2">Clear Favorites</button>
                     <div class="fact-container">
                         <p class = "fact"></p>
-                        <img src="./assets/images/cutedogs.jpeg" alt="A photo of 2 cute dogs"/>
                     </div>
-                </aside>
+                </section>
                 <button class="accordion">Favorite Dog Facts</button>
                 <div class="panel">
-                    <ul id="fav-dog-facts"><!-- favorite list here --></ul>
+                    <ul id="fav-dog-facts" class="list-disc ml-2"><!-- favorite list here --></ul>
                 </div>
             </div>
         </div>
