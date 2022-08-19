@@ -53,8 +53,7 @@ function initMap() {
           };
 
           infoWindow.open(map);
-          console.log(pos);
-          map.setCenter(pos,1);
+          map.setCenter(pos);
           //pan to current location center marker
           createMarker({lat:map.center.lat(),lng:map.center.lng()}, true);
 
@@ -90,11 +89,9 @@ function initMap() {
     fetch('https://api.openweathermap.org/data/2.5/weather?q=' + inputVal.value + ',USA&APPID=deea8678f358f6e59a970dd133b9edc3')
       .then(function (response) {
         if (response.ok) {
-          console.log(response);
           response.json().then(function (data) {
             
             request.location = {lat:data.coord.lat,lng:data.coord.lon};
-            console.log(request.location);
             map.setCenter(request.location);
             //request location center marker
             createMarker(request.location,true);
@@ -118,8 +115,6 @@ function initMap() {
 //render markers on the page
 function callback(results, status) {
 
-
-  console.log(results);
   if (status == google.maps.places.PlacesServiceStatus.OK) {
     for (var i = 0; i < results.length; i++) {
       // console.log(results[i]);
@@ -130,7 +125,6 @@ function callback(results, status) {
 
 function createMarker(resultObj, isCenter){
 
-  // console.log(resultObj)
   
   var locLat = resultObj.lat;
   var locLon = resultObj.lng;
@@ -163,23 +157,5 @@ function handleLocationError(browserHasGeolocation, infoWindow, pos) {
   );
   infoWindow.open(map);
 }
-
-// searchbtn.addEventListener('click', function () {
-//   fetch('https://api.openweathermap.org/data/2.5/weather?q=' + inputVal.value + ',USA&APPID=deea8678f358f6e59a970dd133b9edc3')
-//     .then(function (response) {
-//       if (response.ok) {
-//         console.log(response);
-//         response.json().then(function (data) {
-          
-//           request.location = {lat:data.coord.lat,lng:data.coord.lon};
-//           console.log(request.location);
-
-//           initMap();
-
-//         })
-//       }
-//     })
-//   }
-// )
 
 window.initMap = initMap;
