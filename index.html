@@ -6,6 +6,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://unpkg.com/flowbite@1.5.2/dist/flowbite.min.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Amatic+SC&display=swap" rel="stylesheet">
     <script src="https://kit.fontawesome.com/fb81218133.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="./assets/css/style.css">
     <title>Fetch!</title>
@@ -15,8 +18,7 @@
     <div class="header-container border border-neutral-900 mx-auto bg-sky-100">
         <header>
             <h1 class="banner flex justify-center font-center font-bold">Fetch!</h1>
-        <br>
-        <h4 class="header-text flex justify-center">The place to find local parks to have that nice walk with mans best friend<i class="fa-solid fa-dog"></i>
+        <h4 class="header-text flex justify-center">We welcome dogs of all different shapes and sizes. Search for a place for your beloved K-9 to stroll. Whatever you're searching for, we have from casual walks to sprints down to the lake. Promise to fetch with your best friend? Search for local parks near you, and let your adventure begin!</h4>
         </header>
     </div>
     <!-- Main container -->
@@ -24,7 +26,7 @@
         <div class="main-container">
             <!-- Google Maps API -->
             <div class="maps-container block w-full">
-                <h3 class="maps-hero">My Google Maps Demo</h3>
+                <h3 class="maps-hero">Search local dog parks near you</h3>
                 <div class="input-group">
                 <input type="search" class="search-bar rounded-sm border-blue-700 border font-medium rounded-lg text-sm px-5 py-2.5 text-center mb-2 inputVal" type="text" placeholder="Example: Los Angeles, CA">
                 <button class="search-btn rounded-sm border-blue-700 border text-blue-700 hover:text-white border border-blue-700 hover:bg-blue-800 focus:outline-none focus:ring-blue-300 rounded-lg text-sm px-5 py-2.5 text-center mb-2 rounded-lg hover:bg-blue-800" ><i class="fa-solid fa-magnifying-glass"></i></button>
@@ -36,12 +38,14 @@
                 <section>
                     <!-- Dog Facts API -->
                     <h3 class="facts-hero">Dog Facts</h3>
-                    <img src="./assets/images/cutedogs.jpeg" alt="A photo of 2 cute dogs"/>
+                    <img src="./assets/images/doggy.jpeg" alt="6 dogs howling"/>
+                    <div class="buttons">
                     <button class="dog-facts-btn text-blue-700 hover:text-white border border-blue-700 hover:bg-blue-800 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-1 mb-2">Dog Fact</button>
                     <button class="save-btn text-blue-700 hover:text-white border border-blue-700 hover:bg-blue-800 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-1 mb-2">Favorite</button>
-                    <button class="clear-btn text-blue-700 hover:text-white border border-blue-700 hover:bg-blue-800 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-1 mb-2">Clear Favorites</button>
+                    <button class="clear-btn text-blue-700 hover:text-white border border-blue-700 hover:bg-blue-800 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center mb-2">Clear Favorites</button>
+                    </div>
                     <div class="fact-container">
-                        <p class = "fact"></p>
+                        <p class = "fact ml-2"></p>
                     </div>
                 </section>
                 <button class="accordion">Favorite Dog Facts</button>
@@ -51,7 +55,7 @@
             </div>
         </div>
     </main>
-    <footer class="p-4 bg-sky-100 rounded-lg absolute inset-x-0 bottom-0 justify-center md:flex md:items-center md:p-6">
+    <footer class="bg-sky-100 rounded-lg absolute inset-x-0 bottom-0 justify-center md:flex md:items-center md:p-4">
         <div>
         <h3 class="footer-class"><i class="fa-solid fa-paw"></i> Thank you for visiting <i class="fa-solid fa-paw"></i> </h3>
         </div>
