@@ -3,9 +3,13 @@
 }
 
 body {
-  background-color: aliceblue;
-  font-family: 'Times New Roman', Times, serif;
+  font-family: Marker Felt, fantasy;
   font-size: 22px;
+}
+
+img {
+  margin: 20px auto;
+  width: 70%;
 }
 
 .main-container {
@@ -19,6 +23,12 @@ body {
 .maps-container {
   width: 75%;
   border: solid 1px black;
+  margin: 0;
+}
+
+.search-bar {
+  width: 80%;
+  font-family: fantasy;
 }
 
 .input-group {
@@ -31,26 +41,34 @@ body {
   flex: auto;
   overflow: scroll;
 }
+
+
 .maps-hero {
   display: flex;
   justify-content: center;
 }
 
 .map {
-    height: 400px;
-    width: 90%;
-    margin-right: auto;
-    margin-left: auto;
-    margin-bottom: 20px;
-    margin-top: 15px;
-  }
+  height: 400px;
+  width: 90%;
+  margin: 15px auto 20px auto;
+}
+
+.fact  {
+  font-family: 'Amatic SC', cursive;
+  font-size: 28px;
+}
 
 .banner {
-  font-size: 40px;
+  font-size: 35px;
+  font-family: Marker Felt, fantasy;
+  margin-top: 15px;
 }
 
 .header-text {
-  font-size: 25px;
+  font-size: 20px;
+  text-align: center;
+  margin: 0 10% 20px 10%;
 }
 
 .facts-hero {
@@ -59,9 +77,15 @@ body {
   width: 100%;
 }
 
+.buttons {
+  display: flex;
+  justify-content: center;
+  font-family: fantasy;
+}
+
 .accordion {
   background-color: #daeffe;
-  color: #444;
+  color: black;
   cursor: pointer;
   padding: 18px;
   width: 100%;
@@ -84,26 +108,30 @@ body {
 
 .custom-map-control-button {
   padding: 3px;
-  background-color: white;
+  background-color: rgba(255, 255, 255, 70%);
   border: 1px solid black;
   border-radius: 5px;
   font-size: 17px;
   margin-top: 2px;
-
 }
 
 .custom-map-control-button:hover{
   background-color: rgb(242, 242, 242);
 }
 
+#fav-dog-facts {
+  font-family: 'Amatic SC', cursive;
+  font-size: 28px;
+}
+
 /* mobile phone */
 @media screen and (min-width: 768px){
   header {
-      justify-content: space-between;
+    justify-content: space-between;
   }
   
   #mainSection {
-      margin: 75px 20% 20px;
+    margin: 75px 20% 20px;
   }
   #mainBody {
       text-align: left;
