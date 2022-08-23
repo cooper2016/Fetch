@@ -57,4 +57,4 @@ The page was styled so that it could fit in multiple device size (phone, tablet,
 ## Links to screenshots of deployed application
 ￼￼
   
-https://github.com/cooper2016/Fetch/blob/main/assets/images/screenshot1.jpeg
+https://github.com/cooper2016/Fetch/blob/main/assets/images/screenshot.png
