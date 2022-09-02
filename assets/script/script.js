@@ -57,8 +57,17 @@ function renderFacts() {
 }
 
 for (i = 0; i < acc.length; i++) {
+    if (localStorage.getItem("favs")){
+        acc[i].classList.toggle("animate-pulse")
+    }
     acc[i].addEventListener("click", function () {
         this.classList.toggle("active");
+
+        if (this.children[0].getAttribute("class") == "triangle-right")
+         this.children[0].setAttribute("class", "triangle-down")
+       else
+         this.children[0].setAttribute("class", "triangle-right");
+
         var panel = this.nextElementSibling;
         if (panel.style.display === "block") {
             panel.style.display = "none";
